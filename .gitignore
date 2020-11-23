@@ -4,6 +4,25 @@
 # vscode folder configs
 .vscode
 
+# txt files
+*.txt
+
+# zip files
+*.zip
+
+# remove drivers folders
+/drivers/chrome
+/drivers/safari
+/drivers/firefox
+/drivers/edge
+
+
+# directory configs
+.directory
+
+# geckodriver log file
+./src/geckodriver.log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
