@@ -1,5 +1,7 @@
 from time import sleep
 from selenium import webdriver
+from yaspin import yaspin
+from yaspin.spinners import Spinners
 
 def page_has_loaded(driver, sleep_time = 2):
     '''
@@ -22,6 +24,8 @@ def page_has_loaded(driver, sleep_time = 2):
     
     # comparing old and new page DOM hash together to verify the page is fully loaded
     while page_hash != page_hash_new: 
-        page_hash = get_page_hash(driver)
-        sleep(sleep_time)
-        page_hash_new = get_page_hash(driver)
+        with yaspin(Spinners.clock, text="Waiting for load page") as spinner:
+            sleep(2)  # time consuming code
+            page_hash = get_page_hash(driver)
+            sleep(sleep_time)
+            page_hash_new = get_page_hash(driver)
