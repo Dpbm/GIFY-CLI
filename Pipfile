@@ -11,6 +11,7 @@ webdriver-manager = "*"
 prettytable = "*"
 yaspin = "*"
 emoji = "*"
+prompt-toolkit = "*"
 
 [dev-packages]
 

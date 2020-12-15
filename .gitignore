@@ -1,6 +1,9 @@
 # editor config
 .editorconfig
 
+# geckodriver log
+src/geckodriver.log
+
 # vscode folder configs
 .vscode
 

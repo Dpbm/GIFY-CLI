@@ -11,7 +11,7 @@ from prettytable import PrettyTable
 from time import sleep
 from yaspin import yaspin
 from yaspin.spinners import Spinners
-import emoji
+import emoji 
 
 PREFIX = 'https://www.youtube.com'
 
@@ -34,7 +34,7 @@ with yaspin(Spinners.moon, text="Getting Links"):
         if 'watch' in str(link.get('href')) and '&index=' in str(link.get('href')):
             links.append(PREFIX + link.get('href'))
 
-print(emoji.emojize(":check_mark: Links"))
+print(emoji.emojize("\n\n:check_mark: Links"))
 
 
 links = remove_duplicates(links)
@@ -56,7 +56,8 @@ for link in links:
     title = soup.title.string.split()[:-2]
     title = convert(title)
     titles.append(title)
-    print()
+    header = title.center(100, '-')
+    print(header)
     print(emoji.emojize(":check_mark: Title"))
 
     getVisualization = browser.find_element_by_xpath("//div[@id='info'][@class='style-scope ytd-video-primary-info-renderer']//div[@id='info-text'][@class='style-scope ytd-video-primary-info-renderer']//div[@id='count'][@class='style-scope ytd-video-primary-info-renderer']//yt-view-count-renderer[@class='style-scope ytd-video-primary-info-renderer']//span[@class='view-count style-scope yt-view-count-renderer']")
@@ -85,21 +86,21 @@ for link in links:
     controller = 10
     spinner_comments = yaspin(Spinners.earth, text="getting Comments")
 
+
     with yaspin(Spinners.earth, text="Getting Comments") as sp:
         while True:
-
             browser.execute_script("window.scrollTo(0, {});".format(controller))
             sleep(0.3)
             try:
                 get_amount_of_comments = browser.find_element_by_xpath("/html/body/ytd-app/div/ytd-page-manager/ytd-watch-flexy/div[4]/div[1]/div/ytd-comments/ytd-item-section-renderer/div[1]/ytd-comments-header-renderer/div[1]/h2/yt-formatted-string")
                 amount_of_comments = get_amount_of_comments.get_attribute('innerText').split()[0]
-                print(emoji.emojize(":check_mark: Comments"))
-
+                sp.text = 'Comments amount'
+                sp.ok("✔")
                 break
             except Exception as error:
                 pass
             controller += 10
-        sleep(0.3)
+        
     
     table.add_row([title, visualization, date, likes_in_video, deslikes_in_video, amount_of_comments])
     print(table)
