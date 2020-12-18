@@ -12,6 +12,7 @@ from time import sleep
 from yaspin import yaspin
 from yaspin.spinners import Spinners
 import emoji 
+import sys
 
 PREFIX = 'https://www.youtube.com'
 
@@ -20,9 +21,13 @@ table = PrettyTable(['title', 'visualizations', 'date', 'likes in video', 'desli
 option = Options()
 option.add_argument ('--headless')  
 
+if len(sys.argv) - 1 > 2 or len(sys.argv) - 1 < 2:
+    print("You need to pass only two arguments")
+    exit(1)
 
-url = input('link: ')
-file_name = input('output file name: ')
+url = sys.argv[1]
+file_name = sys.argv[2]
+
 browser = webdriver.Chrome(ChromeDriverManager().install(), options=option)
 browser.get(url)
 soup = BeautifulSoup(browser.page_source, 'html.parser')
@@ -103,7 +108,11 @@ for link in links:
         
     
     table.add_row([title, visualization, date, likes_in_video, deslikes_in_video, amount_of_comments])
-    print(table)
+
+finish = "Output"
+finish = finish.center(100, '-')
+print(finish)
+print(table)
     
 
 browser.quit()
