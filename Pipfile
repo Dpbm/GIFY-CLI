@@ -12,6 +12,7 @@ prettytable = "*"
 yaspin = "*"
 emoji = "*"
 prompt-toolkit = "*"
+asyncio = "*"
 
 [dev-packages]
 
