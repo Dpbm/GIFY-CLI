@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 beautifulsoup4 = "*"
 selenium = "*"
-xlsxwriter = "*"
+XlsxWriter = "*"
 webdriver-manager = "*"
 prettytable = "*"
 yaspin = "*"
