@@ -1,0 +1,9 @@
+beautifulsoup4 
+selenium 
+XlsxWriter 
+webdriver-manager 
+prettytable 
+yaspin
+emoji
+prompt-toolkit
+asyncio
