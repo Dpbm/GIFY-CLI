@@ -156,6 +156,8 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# tests
 utils/get_installed_browsers.py
 
+# annotations
 anote.txt

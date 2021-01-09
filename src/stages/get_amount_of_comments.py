@@ -14,4 +14,4 @@ async def get_amount_of_comments(browser):
             pass
         controller += 10
 
-    return int(amount_of_comments.replace('.', ''))
+    return int(amount_of_comments.replace('.', '').replace(',', ''))

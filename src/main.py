@@ -95,7 +95,7 @@ async def main():
                 comments.append(amount_of_comments)
 
                 sp.text = f'{colors.GREEN}Comments amount'
-                sp.green.ok("✔")
+                sp.green.ok(emoji.emojize(":check_mark:"))
             
             table.add_row([title, visualization, date, likes_in_video, dislikes_in_video, amount_of_comments, link])
             print('\n\n')
@@ -110,7 +110,7 @@ async def main():
         with yaspin(Spinners.moon, text=f"{colors.HEADER}Making xlsx file") as sp:
             await create_xlsx(titles, visualizations, dates, likes, dislikes, comments, links, directory, OUTPUT_FILE_NAME)
             sp.text = f'{colors.GREEN}DONE'
-            sp.green.ok("✔")
+            sp.green.ok(emoji.emojize(":check_mark:"))
 
     except KeyboardInterrupt:
         exit(0)

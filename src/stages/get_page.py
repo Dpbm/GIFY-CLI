@@ -4,9 +4,10 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 async def get_page(URL):
-    option = Options()
-    option.add_argument ('--headless')  
-    browser = webdriver.Chrome(ChromeDriverManager().install(), options=option)
+    options = Options()
+    options.add_argument ('--headless')   
+    options.add_argument("--start-maximized")
+    browser = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     browser.get(URL)
     soup = BeautifulSoup(browser.page_source, 'html.parser')
 
