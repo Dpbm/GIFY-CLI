@@ -33,7 +33,13 @@ async def create_xlsx(titles, visualizations, dates, likes, dislikes, comments, 
     worksheet.write_formula(f'B{len(links)+2}', '{=SUM(B2:B%i)}'%(len(links)+1))
     worksheet.write_formula(f'D{len(likes)+2}', '{=SUM(D2:D%i)}'%(len(likes)+1))
     worksheet.write_formula(f'E{len(dislikes)+2}', '{=SUM(E2:E%i)}'%(len(dislikes)+1))
-    worksheet.write_formula(f'F{len(comments)+2}', '{=SUM(F2:F%i)}'%(len(comments)+1))
+    
+    comments_sum = 0
+    for i in range(len(comments)):
+        if comments[i] != 'no comments' and comments[i].isnumeric():
+            comments_sum += comments[i]
+            
+    worksheet.write(f'F{len(comments)+2}', comments_sum)
 
 
 

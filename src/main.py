@@ -93,9 +93,12 @@ async def main():
             with yaspin(Spinners.runner, text=f"{colors.HEADER}Getting Amount of Comments") as sp:
                 amount_of_comments = await get_amount_of_comments(browser)
                 comments.append(amount_of_comments)
-
-                sp.text = f'{colors.GREEN}Comments amount'
-                sp.green.ok(emoji.emojize(":check_mark:"))
+                if amount_of_comments == 'no comments':
+                    sp.text = f'{colors.FAIL}No have comments'
+                    sp.red.ok(emoji.emojize(":cross_mark:"))
+                else:
+                    sp.text = f'{colors.GREEN}Comments amount'
+                    sp.green.ok(emoji.emojize(":check_mark:"))
             
             table.add_row([title, visualization, date, likes_in_video, dislikes_in_video, amount_of_comments, link])
             print('\n\n')
@@ -115,5 +118,5 @@ async def main():
     except KeyboardInterrupt:
         exit(0)
 
-if __name__ == '__main__':
+if _name_ == '_main_':
     asyncio.run(main())

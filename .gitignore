@@ -161,3 +161,5 @@ utils/get_installed_browsers.py
 
 # annotations
 anote.txt
+
+setup.py

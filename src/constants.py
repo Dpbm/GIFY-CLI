@@ -5,6 +5,7 @@ XPATH_VIEWS = "//div[@id='info'][@class='style-scope ytd-video-primary-info-rend
 XPATH_DATE = "//*[@id='date']/yt-formatted-string"
 XPATH_LIKES_AND_DISLIKES = "//div[@id='info']//div[@id='info-contents']//ytd-video-primary-info-renderer//div[@id='container']//div[@id='info']//div[@id='menu-container']//ytd-sentiment-bar-renderer//paper-tooltip//div[@id='tooltip']"
 XPATH_AMOUNT_COMMENTS = "/html/body/ytd-app/div/ytd-page-manager/ytd-watch-flexy/div[5]/div[1]/div/ytd-comments/ytd-item-section-renderer/div[1]/ytd-comments-header-renderer/div[1]/h2/yt-formatted-string"
+XPATH_NO_COMMENTS = "/html/body/ytd-app/div/ytd-page-manager/ytd-watch-flexy/div[5]/div[1]/div/ytd-comments/ytd-item-section-renderer/div[3]/ytd-message-renderer/yt-formatted-string[1]/span"
 
 class colors:
     HEADER = '\033[95m'
